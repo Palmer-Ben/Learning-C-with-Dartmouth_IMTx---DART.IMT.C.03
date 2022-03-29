@@ -1,0 +1,47 @@
+before starting to market your product. Your program keeps track of a person's age, but in order to be more secretive you work with a pointer rather than the variable that stores the age directly. 
+
+You are provided with a main function -- please complete it. Do not change any of the lines of code that have already been completed. Please only change the lines that are currently comments.
+
+
+//Example
+
+//Input:
+
+45
+
+//Output
+
+The secret address is...fffc                                                    
+Now take three drops of the magic elixir.                                       
+Did the elixir work? You are 40 years old!
+
+
+#include <stdio.h>
+
+int main(void) {
+
+    int age;
+
+    // create pointer
+    int * ageptr;
+
+    scanf("%d", &age);
+    
+    // put age address in ageptr pointer
+    ageptr = &age;
+
+    printf("The secret address is... ");
+    
+    //print out age address
+    printf("%p\n",ageptr);
+
+    printf("Now take three drops of the magic elixir. \n");
+    
+    //assign new value of minus 5 to age via ageptr
+    * ageptr = * ageptr - 5;
+    
+    printf("Did the elixir work? You are %d years old!", age);
+
+    return 0;
+
+}
