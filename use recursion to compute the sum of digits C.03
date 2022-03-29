@@ -1,0 +1,42 @@
+Please write a C-program that uses a recursive function called "sumOfDigits()" to compute the sum of the digits of a number. To do so, your main function should first read an integer number as input and then call sumOfDigits(), which should in turn call itself until there are no digits left to sum, at which point the final sum should display to the user.
+
+Here is the main idea of how the recursion in sumOfDigits() should work:
+
+sumOfDigits(6452) = 2 + sumOfDigits(645)
+
+sumOfDigits(645) = 5 + sumOfDigits(64)
+
+...
+
+sumOfDigits(6) = 6
+
+
+#include <stdio.h>
+//prototype
+int sumOfdigits(int);
+
+
+int main(void) {
+	int num;
+	
+	//read integer
+	scanf("%d",&num);
+	
+	//run function
+	sumOfdigits(num);
+	
+	printf("%d",sumOfdigits(num));
+	
+	return 0;
+}
+
+//define sumOfdigits funcition
+int sumOfdigits(int n){
+    int result = 0;
+    if(n<10){
+        return (result + n);
+    }else{
+        result = (n % 10 + sumOfdigits(n / 10));
+    }
+    return result;
+}
